@@ -1,0 +1,39 @@
+# replicaCount -- Number of StatefulSet Pod instances
+replicaCount: 1
+# updateStrategy -- Strategy when updating the StatefulSet for running instances
+updateStrategy: RollingUpdate
+
+image:
+  # image.repository -- Image name to use for Postgres
+  repository: docker.io/bitnami/postgresql
+  # image.pullPolicy -- Pull policy to use
+  pullPolicy: IfNotPresent
+  # image.tag -- Image tag to use for Postgres
+  tag: 11.9.0-debian-10-r16
+
+# username -- Postgres username
+username: postgres
+# password -- Postgres password
+password: postgres
+# database -- Name of Postgres database
+database: postgres
+
+# claimSize -- How much disk space to allocate for the Postgres claim
+claimSize: 8Gi
+
+podSecurityContext:
+  # podSecurityContext.fsGroup -- Group to use for container (non-root)
+  fsGroup: 1001
+
+service:
+  # service.type -- Service type
+  type: ClusterIP
+  # service.port -- Service port
+  port: 5432
+
+resources:
+  # resources.requests -- Limit resource allocations for requests
+  requests:
+    cpu: 250m
+    memory: 256Mi
+

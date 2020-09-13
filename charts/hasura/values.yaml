@@ -1,0 +1,34 @@
+# replicaCount -- Number of instances to deploy
+replicaCount: 1
+
+image:
+  # image.repository -- Which Docker image to pull
+  repository: hasura/graphql-engine
+  # image.pullPolicy -- Pull Policy for deployment
+  pullPolicy: IfNotPresent
+  # image.tag -- Which image tag to use
+  tag: v1.3.2
+
+service:
+  # service.type -- Which service type to use
+  type: ClusterIP
+  # service.port -- Port that the server listens on
+  port: 8080
+
+ingress:
+  # ingress.annotations -- Annotations for the Ingress
+  annotations:
+    "ingress.kubernetes.io/ssl-redirect": "false"
+  # ingress.host -- Hostname to expose for the Ingress
+  host: chart-example.local
+
+# enableConsole -- Whether to enable the Hasura console. Set to `"false"` for production
+enableConsole: "true"
+# devMode -- Development mode toggle. Set to `"false"` for production
+devMode: "true"
+# adminSecret -- Administrator secret. It is recommended to change this to something complex.
+adminSecret: admin
+
+postgres:
+  # postgres.database -- Name of database for Postgres
+  database: hasura

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Chart.Name }}
+  name: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: {{ .Chart.Name }}
+        env:
+        - name: HASURA_GRAPHQL_DATABASE_URL
+          value: postgres://{{ .Values.postgres.username }}:{{ .Values.postgres.password }}@postgres-headless.{{ .Release.Namespace }}:{{ .Values.postgres.service.port }}/{{ .Values.postgres.database }}
+        - name: HASURA_GRAPHQL_ENABLE_CONSOLE
+          value: "{{ .Values.enableConsole }}"
+        - name: HASURA_GRAPHQL_DEV_MODE
+          value: "{{ .Values.devMode }}"
+        - name: HASURA_GRAPHQL_ADMIN_SECRET
+          value: {{ .Values.adminSecret }}
+        ports:
+        - containerPort: {{ .Values.service.port }}
+          protocol: TCP
+          name: http
