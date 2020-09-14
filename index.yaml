@@ -3,23 +3,23 @@ entries:
   hasura:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-09-13T21:51:49.653295371Z"
+    created: "2020-09-14T11:48:10.73701238Z"
     description: A Helm chart for Kubernetes
-    digest: b9f36d2fc97ace11a408efcff8860cf827fa862b79f844f0cd6abc6d36f2d3bd
+    digest: f605d8c2705fbaa5136c95c654deb3045aa42254619ceafac6f91ddbfd0f2587
     name: hasura
     type: application
     urls:
-    - https://github.com/localhost-developer/charts/releases/download/hasura-0.1.2/hasura-0.1.2.tgz
-    version: 0.1.2
+    - https://github.com/localhost-developer/charts/releases/download/hasura-0.1.0/hasura-0.1.0.tgz
+    version: 0.1.0
   postgres:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-09-13T21:51:49.77169141Z"
+    created: "2020-09-14T11:48:10.845291755Z"
     description: A Helm chart for Kubernetes
-    digest: f226f042062b746ea3b079d05e7c4b6c61d983d48ddf5314f870e55876130795
+    digest: 0c98a8a7fe968b1db5cbfc80483c8473b0dbd360f25ab2350ab5251506f92eba
     name: postgres
     type: application
     urls:
-    - https://github.com/localhost-developer/charts/releases/download/postgres-0.1.2/postgres-0.1.2.tgz
-    version: 0.1.2
-generated: "2020-09-13T21:51:49.448904271Z"
+    - https://github.com/localhost-developer/charts/releases/download/postgres-0.1.0/postgres-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-09-14T11:48:10.560768812Z"
