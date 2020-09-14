@@ -128,7 +128,7 @@ git checkout gh-pages
 cp --force $CR_PACKAGE_PATH/index.yaml index.yaml
 
 if [[ -e "$CR_PACKAGE_PATH/docs/charts" ]]; then
-  mkdir -p charts
+  mkdir -p docs
   cp --force --recursive $CR_PACKAGE_PATH/docs/charts/* docs/
 fi
 
